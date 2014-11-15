@@ -1,0 +1,215 @@
+vassal_decisions = {
+	form_high_kingdom_for_vassal = {
+		from_potential = {
+			tier = EMPEROR
+		}
+		potential = {
+      is_ruler = yes
+      is_landed = yes
+      prisoner = no
+      is_liege = FROM
+			# All titles in the empire of the primary title
+			# are either completely controller, or inactive
+			primary_title = {
+				empire = {
+					NOT = {
+						any_direct_de_jure_vassal_title = {
+							ROOT = {
+								NOT = {
+									OR = {
+										completely_controls = PREV
+										NOT = { is_title_active = PREV }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		allow = {
+			always = yes
+		}
+		effect = {
+			primary_title = {
+				empire = {
+					hidden_tooltip = {
+						# Create new Kingdom title based on the Empire
+						create_title = {
+							tier = KING
+							landless = no
+							temporary = no
+							custom_created = yes
+							culture = ROOT
+							holder = ROOT
+							base_title = THIS
+							copy_title_laws = yes
+							make_primary_title = yes
+						}
+						## Destroy old Kingdoms
+						any_direct_de_jure_vassal_title = {
+							#de_jure_liege = NONE
+							#activate_title = { title = THIS status = no }
+							destroy_landed_title = THIS
+						}
+					}
+					ROOT = {
+						# Best effort to locate newly created title, will cause other
+						# Kingdoms held by vassal to also become de-jure part of Empire.
+						any_demesne_title = {
+							limit = {
+								tier = KING
+							}
+							hidden_tooltip = {
+              	# Set de-jure Empire of High Kingdom to Empire
+								# PREVPREV = empire
+								de_jure_liege = PREVPREV
+							}
+						}
+					}
+					ROOT = {
+						any_demesne_title = {
+							limit = {
+								tier = KING
+							}
+							empire = {
+								# Make Dukes of Empire vassals of High Kingdom
+								any_de_jure_vassal_title = {
+									limit = {
+										tier = DUKE
+									}
+									de_jure_liege = PREVPREV
+								}
+								## Make Kingdoms of Empire Liegeless
+								#any_direct_de_jure_vassal_title = {
+								#	de_jure_liege = NONE
+								#	activate_title = {
+								#		title = THIS
+								#		status = no
+								#	}
+								#}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+# here to crib from
+#	form_new_kingdom = {
+#		is_high_prio = yes
+#		potential = {
+#			has_dlc = "Charlemagne"
+#			is_playable = yes
+#			tier = DUKE
+#			NOT = { tier = KING }
+#			OR = {
+#				ai = no
+#				AND = {
+#					trait = proud
+#					prestige = 5000
+#				}
+#				AND = {
+#					trait = ambitious
+#					prestige = 5000
+#				}
+#				prestige = 15000
+#			}
+#		}
+#		allow = {
+#			is_adult = yes
+#			prisoner = no
+#			NOT = { trait = incapable }
+#			independent = yes
+#			prestige = 1000
+#			OR = {
+#				realm_size = 35
+#				custom_tooltip = {
+#					text = form_new_kingdom_requirement_tooltip
+#					hidden_tooltip = {
+#						any_demesne_title = {
+#							count = 3
+#							tier = DUKE
+#						}
+#					}
+#				}
+#			}
+#			wealth = 300
+#		}
+#		effect = {
+#			primary_title = {
+#				create_title = {
+#					tier = KING
+#					landless = no
+#					temporary = no
+#					custom_created = yes
+#					culture = ROOT
+#					holder = ROOT
+#					base_title = THIS
+#					copy_title_laws = yes
+#				}
+#
+#				hidden_tooltip = {
+#					empire = {
+#						ROOT = {
+#							primary_title = {
+#								de_jure_liege = PREVPREV
+#							}
+#						}
+#					}
+#
+#					ROOT = {
+#						primary_title = {
+#							holder_scope = {
+#								any_title_under = {
+#									limit = {
+#										tier = DUKE
+#										kingdom = {
+#											has_holder = no
+#										}
+#									}
+#									de_jure_liege = PREVPREV
+#								}
+#								any_title_under = {
+#									limit = {
+#										tier = COUNT
+#										location = {
+#											duchy = {
+#												kingdom = {
+#													has_holder = no
+#												}
+#												
+#												NOT = { de_jure_liege_or_above = PREVPREVPREVPREV }
+#												ROOT = {
+#													completely_controls = PREV
+#												}
+#											}
+#										}
+#									}
+#									location = {
+#										duchy = {
+#											de_jure_liege = PREVPREVPREVPREV
+#										}
+#									}
+#								}
+#							}
+#						}
+#					}
+#				}
+#
+#			}
+#			wealth = -300
+#			custom_tooltip = { text = form_new_kingdom_tooltip }
+#			chronicle = {
+#				entry = CHRONICLE_FOUNDED_NEW_KINGDOM_OR_EMPIRE
+#				portrait = [Root.GetID]
+#			}
+#		}
+#		revoke_allowed = {
+#			always = no
+#		}
+#		ai_will_do = {
+#			factor = 1
+#		}
+#	}
