@@ -36,6 +36,15 @@ There are no limits from rank, so you can make a High Kingdom for yourself
 as a Count, Duke, King or Emperor, but you need to be an Emperor to make
 a High Kingdom for a Vassal.
 
+Installation Instructions
+=========================
+
+If you're installing from the Steam Workshop, this should all be automatic.
+
+If not, you need to put the highkings directory extracted from the archive
+in your Crusader Kings II mod directory, and copy the highkings.mod file
+into the mod directory.
+
 TODO
 ====
 
