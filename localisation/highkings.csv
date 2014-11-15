@@ -1,0 +1,7 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+form_high_kingdom_for_vassal;Form High Kingdom for [Root.GetTitledFirstName];;;;;;;;;;;;;x
+form_high_kingdom_for_vassal_desc;[Root.GetTitledFirstName] holds all the de-jure lands of an Empire. You can make [Root.GetHerHim] the [Root.GetKingQueen] of all these lands by forming a High Kingdom.;;;;;;;;;;;;;x
+form_high_kingdom_as_king;Form High Kingdom;;;;;;;;;;;;;x
+form_high_kingdom_as_king_desc;[Root.GetTitledFirstName] holds all the de-jure lands of an Empire. Rather than forming the Empire, [Root.GetHerHim] can declare [Root.GetHimselfHerself] the High [Root.GetKingQueen].;;;;;;;;;;;;;x
+form_high_kingdom_as_emperor;Form High Kingdom;;;;;;;;;;;;;x
+form_high_kingdom_as_emperor_desc;[From.GetTitledFirstName] holds all the de-jure lands of [From.GetHersHis] Empire. [From.GetTitledFirstName] can consolidate power into a High Kingdom.;;;;;;;;;;;;;x
