@@ -1,3 +1,40 @@
+Description
+===========
+
+Have a massive Empire? Want to delegate power to a small number of
+Kings? Annoyed by having to wait for everything to de-jure drift into
+titles that don't represent the whole area?
+
+Well, now you have a solution. High Kings!
+
+What are High Kings?
+--------------------
+
+High Kings hold all of the territory in a de-jure Empire. Instead of
+all the little Kingdoms there's one with the same name and flag as the
+Empire title.
+
+The High Kingdom remains de-jure part of the Empire they were created
+from, but they can be de-jure drifted out into your primary Empire.
+
+How do I make a High Kingdom?
+-----------------------------
+
+Either completely control all the de-jure lands of the Empire of your
+Primary Title, or ensure a vassal of yours holds all the lands of
+the Empire.
+
+As a technical limit, you (or your vassal) must not hold any Kingdoms
+belonging to an Empire outside your (or your vassal's) primary title's
+Empire.
+
+The decision will become visible after you (or your vassal) hold at
+least two de-jure Kingdoms in the de-jure Empire of your (or your
+vassal's) primary title.
+
+There are no limits from rank, so you can make a High Kingdom for yourself
+as a Count, Duke, King or Emperor, but you need to be an Emperor to make
+a High Kingdom for a Vassal.
 
 Bugs
 ====
@@ -13,20 +50,15 @@ Bugs
 
     See feature request 1.
 
-*   The colour of the High Kingdom is based on the primary title of the
-    holder, rather than the Empire you're making a High Kingdom of.
-
-    See feature request 2.
-
 *   The old Kingdoms can still be created as Titular Kingdoms.
 
-    See feature request 3.
+    See feature request 2.
 
 *   Titular Kingdoms don't contribute towards when the decision appears.
 
     This may either be a bug or a feature, but I don't have the choice.
 
-    See feature request 3.
+    See feature request 2.
 
 Feature Requests
 ================
@@ -42,14 +74,7 @@ Feature Requests
     leaving the Kingdom created and making it de-jure the Empire of the
     High Kingdom.
 
-2.  The colour of a newly created custom title is based on the primary
-    title of the holder, rather than the title the custom title is
-    based on.
-
-    This isn't needed for the Charlemagne expansion because the base
-    title is always the same as the primary title.
-
-3.  Checking whether a title is active or changing the active status of
+2.  Checking whether a title is active or changing the active status of
     a title requires it to be explicitly named.
 
     This is sufficient for base-game, as the events are tied to specific
@@ -58,7 +83,7 @@ Feature Requests
     To be able to handle this, I need to be able to pass a reference like
     `PREV` or `THIS` to `is_title_active` and `activate_title`.
 
-4.  Allow the `empire` scope to be used on empire tier titles.
+3.  Allow the `empire` scope to be used on empire tier titles.
 
     I need two different decisions to handle making High Kingdom titles
     when I'm an Emperor or a King. If I could get an empire scope from
