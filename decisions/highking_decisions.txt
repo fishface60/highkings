@@ -104,120 +104,205 @@ vassal_decisions = {
 		}
 	}
 }
-# here to crib from
-#	form_new_kingdom = {
-#		is_high_prio = yes
-#		potential = {
-#			has_dlc = "Charlemagne"
-#			is_playable = yes
-#			tier = DUKE
-#			NOT = { tier = KING }
-#			OR = {
-#				ai = no
-#				AND = {
-#					trait = proud
-#					prestige = 5000
-#				}
-#				AND = {
-#					trait = ambitious
-#					prestige = 5000
-#				}
-#				prestige = 15000
-#			}
-#		}
-#		allow = {
-#			is_adult = yes
-#			prisoner = no
-#			NOT = { trait = incapable }
-#			independent = yes
-#			prestige = 1000
-#			OR = {
-#				realm_size = 35
-#				custom_tooltip = {
-#					text = form_new_kingdom_requirement_tooltip
-#					hidden_tooltip = {
-#						any_demesne_title = {
-#							count = 3
-#							tier = DUKE
-#						}
-#					}
-#				}
-#			}
-#			wealth = 300
-#		}
-#		effect = {
-#			primary_title = {
-#				create_title = {
-#					tier = KING
-#					landless = no
-#					temporary = no
-#					custom_created = yes
-#					culture = ROOT
-#					holder = ROOT
-#					base_title = THIS
-#					copy_title_laws = yes
-#				}
-#
-#				hidden_tooltip = {
-#					empire = {
-#						ROOT = {
-#							primary_title = {
-#								de_jure_liege = PREVPREV
-#							}
-#						}
-#					}
-#
-#					ROOT = {
-#						primary_title = {
-#							holder_scope = {
-#								any_title_under = {
-#									limit = {
-#										tier = DUKE
-#										kingdom = {
-#											has_holder = no
-#										}
-#									}
-#									de_jure_liege = PREVPREV
-#								}
-#								any_title_under = {
-#									limit = {
-#										tier = COUNT
-#										location = {
-#											duchy = {
-#												kingdom = {
-#													has_holder = no
-#												}
-#												
-#												NOT = { de_jure_liege_or_above = PREVPREVPREVPREV }
-#												ROOT = {
-#													completely_controls = PREV
-#												}
-#											}
-#										}
-#									}
-#									location = {
-#										duchy = {
-#											de_jure_liege = PREVPREVPREVPREV
-#										}
-#									}
-#								}
-#							}
-#						}
-#					}
-#				}
-#
-#			}
-#			wealth = -300
-#			custom_tooltip = { text = form_new_kingdom_tooltip }
-#			chronicle = {
-#				entry = CHRONICLE_FOUNDED_NEW_KINGDOM_OR_EMPIRE
-#				portrait = [Root.GetID]
-#			}
-#		}
-#		revoke_allowed = {
-#			always = no
-#		}
-#		ai_will_do = {
-#			factor = 1
-#		}
-#	}
+
+decisions = {
+	# Make a high kingdom out of the Empire your primary title is in
+	form_high_kingdom_as_king = {
+		potential = {
+			is_ruler = yes
+			is_landed = yes
+			is_independent = yes
+			tier = KING
+			# Any vassal which controls more than one de-jure kingdom in the empire
+			# of their primary title
+			primary_title = {
+				empire = {
+					any_direct_de_jure_vassal_title = {
+						count = 2
+						# Would prefer to check if title is inactive too, but you can't
+						# pass a reference to is_title_active
+						#is_title_active = THIS
+						is_titular = no
+						ROOT = {
+							completely_controls = PREV
+						}
+					}
+				}
+			}
+		}
+		allow = {
+			# All titles in the empire of the primary title
+			# are completely controlled
+			primary_title = {
+				empire = {
+					# Double negation from de-morgan's law to allow a check for ALL
+					NOT = {
+						any_direct_de_jure_vassal_title = {
+							ROOT = {
+								NOT = { completely_controls = PREV }
+							}
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			primary_title = {
+				empire = {
+					hidden_tooltip = {
+						# Create new Kingdom title based on the Empire
+						create_title = {
+							tier = KING
+							landless = no
+							temporary = no
+							custom_created = yes
+							culture = ROOT
+							holder = ROOT
+							base_title = THIS
+							copy_title_laws = yes
+							make_primary_title = yes
+						}
+						# Destroy old Kingdoms
+						any_direct_de_jure_vassal_title = {
+							destroy_landed_title = THIS
+							# Would prefer to deactivate title, but it can't take a reference
+							#activate_title = { title = THIS status = no }
+						}
+					}
+					# Make high kingdom de-jure the empire it is named from
+					ROOT = {
+						# Best effort to locate newly created title, will cause other
+						# Kingdoms held by vassal to also become de-jure part of Empire.
+						any_demesne_title = {
+							limit = {
+								tier = KING
+							}
+							hidden_tooltip = {
+								# Set de-jure Empire of High Kingdom to Empire
+								# PREVPREV = empire
+								de_jure_liege = PREVPREV
+							}
+						}
+					}
+					# Make Dukes of Empire vassals of High Kingdom
+					ROOT = {
+						# Best effort to locate newly created title, will cause other
+						# Kingdoms held by vassal to also become de-jure part of Empire.
+						any_demesne_title = {
+							limit = {
+								tier = KING
+							}
+							empire = {
+								# Must scope with to layers of any_direct_de_jure_vassal_title
+								# rather than any_de_jure_vassal_title with a limit, or it
+								# ignores titles that aren't currently held
+								any_direct_de_jure_vassal_title = {
+									any_direct_de_jure_vassal_title = {
+										de_jure_liege = PREVPREVPREV
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# Make a high kingdom out of the Empire your primary title is
+	form_high_kingdom_as_emperor = {
+		potential = {
+			is_ruler = yes
+			is_landed = yes
+			is_independent = yes
+			tier = EMPEROR
+			# Any vassal which controls more than one de-jure kingdom in the empire
+			# of their primary title
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					count = 2
+					# Would prefer to check if title is inactive too, but you can't
+					# pass a reference to is_title_active
+					#is_title_active = THIS
+					is_titular = no
+					ROOT = {
+						completely_controls = PREV
+					}
+				}
+			}
+		}
+		allow = {
+			# All titles in the empire of the primary title
+			# are completely controlled
+			primary_title = {
+				# Double negation from de-morgan's law to allow a check for ALL
+				NOT = {
+					any_direct_de_jure_vassal_title = {
+						ROOT = {
+							NOT = { completely_controls = PREV }
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			primary_title = {
+				hidden_tooltip = {
+					# Create new Kingdom title based on the Empire
+					create_title = {
+						tier = KING
+						landless = no
+						temporary = no
+						custom_created = yes
+						culture = ROOT
+						holder = ROOT
+						base_title = THIS
+						copy_title_laws = yes
+						make_primary_title = yes
+					}
+					# Destroy old Kingdoms
+					any_direct_de_jure_vassal_title = {
+						destroy_landed_title = THIS
+						# Would prefer to deactivate title, but it can't take a reference
+						#activate_title = { title = THIS status = no }
+					}
+				}
+				# Make high kingdom de-jure the empire it is named from
+				ROOT = {
+					# Best effort to locate newly created title, will cause other
+					# Kingdoms held by vassal to also become de-jure part of Empire.
+					any_demesne_title = {
+						limit = {
+							tier = KING
+						}
+						hidden_tooltip = {
+							# Set de-jure Empire of High Kingdom to Empire
+							# PREVPREV = empire
+							de_jure_liege = PREVPREV
+						}
+					}
+				}
+				# Make Dukes of Empire vassals of High Kingdom
+				ROOT = {
+					# Best effort to locate newly created title, will cause other
+					# Kingdoms held by vassal to also become de-jure part of Empire.
+					any_demesne_title = {
+						limit = {
+							tier = KING
+						}
+						empire = {
+							# Must scope with to layers of any_direct_de_jure_vassal_title
+							# rather than any_de_jure_vassal_title with a limit, or it
+							# ignores titles that aren't currently held
+							any_direct_de_jure_vassal_title = {
+								any_direct_de_jure_vassal_title = {
+									de_jure_liege = PREVPREVPREV
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
