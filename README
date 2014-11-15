@@ -54,6 +54,9 @@ TODO
     so the selection logic can be the same for yourself being eligible
     and your vassals being eligible.
 
+    Triggered modifiers may be the most convenient way to do this, but
+    there's no drop-in directory for them, see Feature request 4.
+
 *   Refactor the logic into an event to create the High Kingdom, so the
     decisions can share logic for the effect.
 
@@ -109,3 +112,10 @@ Feature Requests
     I need two different decisions to handle making High Kingdom titles
     when I'm an Emperor or a King. If I could get an empire scope from
     an empire then the same logic would fall through.
+
+4.  Allow drop-in directories for triggered_modifiers.txt
+
+    I need a flag for eligibility for High Kingship, but it's annoying to
+    have to trigger an event to add the flag and an event to remove it,
+    and define the flag itself, so it would be convienient to be able
+    to put all 3 in the same definition.
