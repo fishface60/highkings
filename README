@@ -1,0 +1,65 @@
+
+Bugs
+====
+
+*   You can't create a High Kingdom if you hold Kingdoms outside the
+    Empire of your primary title.
+
+    If the creator of a High Kingdom holds other Kingdoms, then they may
+    become de-jure the Empire of the new High Kingdom, and have the
+    lands of the High Kingdom assigned to them.
+
+    This is why I have put in the potentially arbitrary restriction.
+
+    See feature request 1.
+
+*   The colour of the High Kingdom is based on the primary title of the
+    holder, rather than the Empire you're making a High Kingdom of.
+
+    See feature request 2.
+
+*   The old Kingdoms can still be created as Titular Kingdoms.
+
+    See feature request 3.
+
+*   Titular Kingdoms don't contribute towards when the decision appears.
+
+    This may either be a bug or a feature, but I don't have the choice.
+
+    See feature request 3.
+
+Feature Requests
+================
+
+1.  A way to obtain a reference to the newly created custom title.
+
+    This isn't needed for the Charlemagne expansion because when going
+    up in rank it automatically becomes your primary title.
+
+    I needed to destroy the old Kingdoms and look through all the held
+    Kingdoms, which would result in the lands of those Kingdoms going to
+    the new High Kingdom, vassalising everyone in that de-jure Kingdom,
+    leaving the Kingdom created and making it de-jure the Empire of the
+    High Kingdom.
+
+2.  The colour of a newly created custom title is based on the primary
+    title of the holder, rather than the title the custom title is
+    based on.
+
+    This isn't needed for the Charlemagne expansion because the base
+    title is always the same as the primary title.
+
+3.  Checking whether a title is active or changing the active status of
+    a title requires it to be explicitly named.
+
+    This is sufficient for base-game, as the events are tied to specific
+    titles, but I need to be a lot more dynamic.
+
+    To be able to handle this, I need to be able to pass a reference like
+    `PREV` or `THIS` to `is_title_active` and `activate_title`.
+
+4.  Allow the `empire` scope to be used on empire tier titles.
+
+    I need two different decisions to handle making High Kingdom titles
+    when I'm an Emperor or a King. If I could get an empire scope from
+    an empire then the same logic would fall through.
