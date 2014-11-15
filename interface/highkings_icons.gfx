@@ -1,0 +1,18 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_form_high_kingdom_for_vassal"
+		texturefile = "gfx/interface/decision_icon_form_new_kingdom.dds"
+	}
+
+	spriteType = {
+		name = "GFX_form_high_kingdom_as_king"
+		texturefile = "gfx/interface/decision_icon_form_new_kingdom.dds"
+	}
+
+	spriteType = {
+		name = "GFX_form_high_kingdom_as_emperor"
+		texturefile = "gfx/interface/decision_icon_form_new_kingdom.dds"
+	}
+
+}
