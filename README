@@ -53,6 +53,13 @@ TODO
 
 *   Add icons for the decisions.
 
+*   Refactor the logic into character flags for potential High Kings,
+    so the selection logic can be the same for yourself being eligible
+    and your vassals being eligible.
+
+*   Refactor the logic into an event to create the High Kingdom, so the
+    decisions can share logic for the effect.
+
 Bugs
 ====
 
