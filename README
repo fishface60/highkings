@@ -48,9 +48,6 @@ into the mod directory.
 TODO
 ====
 
-*   Provide easily readable tooltips for what happens and the requirements.
-    The logic required is beyond what the automatic tooltips can provide.
-
 *   Add icons for the decisions.
 
 *   Refactor the logic into character flags for potential High Kings,

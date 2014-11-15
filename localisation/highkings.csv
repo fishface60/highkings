@@ -5,3 +5,6 @@ form_high_kingdom_as_king;Form High Kingdom;;;;;;;;;;;;;x
 form_high_kingdom_as_king_desc;[Root.GetTitledFirstName] holds all the de-jure lands of an Empire. Rather than forming the Empire, [Root.GetHerHim] can declare [Root.GetHimselfHerself] the High [Root.GetKingQueen].;;;;;;;;;;;;;x
 form_high_kingdom_as_emperor;Form High Kingdom;;;;;;;;;;;;;x
 form_high_kingdom_as_emperor_desc;[From.GetTitledFirstName] holds all the de-jure lands of [From.GetHersHis] Empire. [From.GetTitledFirstName] can consolidate power into a High Kingdom.;;;;;;;;;;;;;x
+holds_all_de_jure_lands;[Root.GetBestName] holds all the de-jure lands of the [This.GetFullName]\n;;;;;;;;;;;;;x
+holds_no_external_kingdoms;[Root.GetBestName] holds no Kingdoms outside the de-jure lands of the [This.GetFullName]\n;;;;;;;;;;;;;x
+create_high_kingdom;The High Kingdom for the [This.GetFullName] is created\n;;;;;;;;;;;;;x
