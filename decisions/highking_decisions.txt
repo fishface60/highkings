@@ -67,27 +67,21 @@ vassal_decisions = {
 							}
 						}
 					}
+					# Make Dukes of Empire vassals of High Kingdom
 					ROOT = {
 						any_demesne_title = {
 							limit = {
 								tier = KING
 							}
 							empire = {
-								# Make Dukes of Empire vassals of High Kingdom
-								any_de_jure_vassal_title = {
-									limit = {
-										tier = DUKE
+								# Must scope with to layers of any_direct_de_jure_vassal_title
+								# rather than any_de_jure_vassal_title with a limit, or it
+								# ignores titles that aren't currently held
+								any_direct_de_jure_vassal_title = {
+									any_direct_de_jure_vassal_title = {
+										de_jure_liege = PREVPREVPREV
 									}
-									de_jure_liege = PREVPREV
 								}
-								## Make Kingdoms of Empire Liegeless
-								#any_direct_de_jure_vassal_title = {
-								#	de_jure_liege = NONE
-								#	activate_title = {
-								#		title = THIS
-								#		status = no
-								#	}
-								#}
 							}
 						}
 					}
