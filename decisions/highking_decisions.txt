@@ -1,5 +1,6 @@
 vassal_decisions = {
 	form_high_kingdom_for_vassal = {
+		is_high_prio = yes
 		from_potential = {
 			tier = EMPEROR
 		}
@@ -130,6 +131,7 @@ vassal_decisions = {
 decisions = {
 	# Make a high kingdom out of the Empire your primary title is in
 	form_high_kingdom_as_king = {
+		is_high_prio = yes
 		potential = {
 			is_ruler = yes
 			is_landed = yes
@@ -255,6 +257,7 @@ decisions = {
 
 	# Make a high kingdom out of the Empire your primary title is
 	form_high_kingdom_as_emperor = {
+		is_high_prio = yes
 		potential = {
 			is_ruler = yes
 			is_landed = yes
