@@ -36,6 +36,14 @@ There are no limits from rank, so you can make a High Kingdom for yourself
 as a Count, Duke, King or Emperor, but you need to be an Emperor to make
 a High Kingdom for a Vassal.
 
+TODO
+====
+
+*   Provide easily readable tooltips for what happens and the requirements.
+    The logic required is beyond what the automatic tooltips can provide.
+
+*   Add icons for the decisions.
+
 Bugs
 ====
 
