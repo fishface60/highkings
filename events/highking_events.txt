@@ -19,45 +19,35 @@ character_event = {
 					holder = ROOT
 					base_title = THIS
 					copy_title_laws = yes
-					make_primary_title = yes
+				}
+				new_title = {
+					# Make high kingdom de-jure the empire it is named from
+					de_jure_liege = PREV
+				}
+				new_title = {
+					# Make Dukes of Empire vassals of High Kingdom
+					empire = {
+						# Must scope with to layers of any_direct_de_jure_vassal_title
+						# rather than any_de_jure_vassal_title with a limit, or it
+						# ignores titles that aren't currently held
+						any_direct_de_jure_vassal_title = {
+							any_direct_de_jure_vassal_title = {
+								de_jure_liege = PREVPREVPREV
+							}
+						}
+					}
 				}
 				# Destroy old Kingdoms
 				any_direct_de_jure_vassal_title = {
-					destroy_landed_title = THIS
-					# Would prefer to deactivate title, but it can't take a reference
-					#activate_title = { title = THIS status = no }
-				}
-				# Make high kingdom de-jure the empire it is named from
-				ROOT = {
-					# Best effort to locate newly created title, will cause other
-					# Kingdoms held by vassal to also become de-jure part of Empire.
-					any_demesne_title = {
+					if = {
 						limit = {
-							tier = KING
+							# Hacky check that title isn't our newly created High Kingdom
+							is_titular = yes
+							de_jure_liege = PREV
 						}
-						# Set de-jure Empire of High Kingdom to Empire
-						# PREVPREV = empire
-						de_jure_liege = PREVPREV
-					}
-				}
-				# Make Dukes of Empire vassals of High Kingdom
-				ROOT = {
-					# Best effort to locate newly created title, will cause other
-					# Kingdoms held by vassal to also become de-jure part of Empire.
-					any_demesne_title = {
-						limit = {
-							tier = KING
-						}
-						empire = {
-							# Must scope with to layers of any_direct_de_jure_vassal_title
-							# rather than any_de_jure_vassal_title with a limit, or it
-							# ignores titles that aren't currently held
-							any_direct_de_jure_vassal_title = {
-								any_direct_de_jure_vassal_title = {
-									de_jure_liege = PREVPREVPREV
-								}
-							}
-						}
+						destroy_landed_title = THIS
+						# Would prefer to deactivate title, but it can't take a reference
+						#activate_title = { title = THIS status = no }
 					}
 				}
 			}
@@ -82,45 +72,35 @@ character_event = {
 				holder = ROOT
 				base_title = THIS
 				copy_title_laws = yes
-				make_primary_title = yes
+			}
+			new_title = {
+				# Make high kingdom de-jure the empire it is named from
+				de_jure_liege = PREV
+			}
+			new_title = {
+				# Make Dukes of Empire vassals of High Kingdom
+				empire = {
+					# Must scope with to layers of any_direct_de_jure_vassal_title
+					# rather than any_de_jure_vassal_title with a limit, or it
+					# ignores titles that aren't currently held
+					any_direct_de_jure_vassal_title = {
+						any_direct_de_jure_vassal_title = {
+							de_jure_liege = PREVPREVPREV
+						}
+					}
+				}
 			}
 			# Destroy old Kingdoms
 			any_direct_de_jure_vassal_title = {
-				destroy_landed_title = THIS
-				# Would prefer to deactivate title, but it can't take a reference
-				#activate_title = { title = THIS status = no }
-			}
-			# Make high kingdom de-jure the empire it is named from
-			ROOT = {
-				# Best effort to locate newly created title, will cause other
-				# Kingdoms held by vassal to also become de-jure part of Empire.
-				any_demesne_title = {
+				if = {
 					limit = {
-						tier = KING
+						# Hacky check that title isn't our newly created High Kingdom
+						is_titular = yes
+						de_jure_liege = PREV
 					}
-					# Set de-jure Empire of High Kingdom to Empire
-					# PREVPREV = empire
-					de_jure_liege = PREVPREV
-				}
-			}
-			# Make Dukes of Empire vassals of High Kingdom
-			ROOT = {
-				# Best effort to locate newly created title, will cause other
-				# Kingdoms held by vassal to also become de-jure part of Empire.
-				any_demesne_title = {
-					limit = {
-						tier = KING
-					}
-					empire = {
-						# Must scope with to layers of any_direct_de_jure_vassal_title
-						# rather than any_de_jure_vassal_title with a limit, or it
-						# ignores titles that aren't currently held
-						any_direct_de_jure_vassal_title = {
-							any_direct_de_jure_vassal_title = {
-								de_jure_liege = PREVPREVPREV
-							}
-						}
-					}
+					destroy_landed_title = THIS
+					# Would prefer to deactivate title, but it can't take a reference
+					#activate_title = { title = THIS status = no }
 				}
 			}
 		}

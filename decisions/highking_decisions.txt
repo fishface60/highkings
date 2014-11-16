@@ -7,7 +7,7 @@ vassal_decisions = {
 		potential = {
 			is_ruler = yes
 			is_landed = yes
-			prisoner = no
+			tier = KING
 			is_liege = FROM
 			# Any vassal which controls more than one de-jure kingdom in the empire
 			# of their primary title
@@ -38,24 +38,6 @@ vassal_decisions = {
 							any_direct_de_jure_vassal_title = {
 								ROOT = {
 									NOT = { completely_controls = PREV }
-								}
-							}
-						}
-					}
-				}
-			}
-			# Forbid if you hold any Kingdoms outside the Empire of your primary
-			# title, this is a work-around for not being able to find the newly
-			# created title any other way than looking at held Kingdoms.
-			primary_title = {
-				empire = {
-					custom_tooltip = {
-						text = holds_no_external_kingdoms
-						ROOT = {
-							NOT = {
-								any_demesne_title = {
-									tier = KING
-									NOT = { de_jure_liege = PREVPREV }
 								}
 							}
 						}
@@ -126,24 +108,6 @@ decisions = {
 					}
 				}
 			}
-			# Forbid if you hold any Kingdoms outside the Empire of your primary
-			# title, this is a work-around for not being able to find the newly
-			# created title any other way than looking at held Kingdoms.
-			primary_title = {
-				empire = {
-					custom_tooltip = {
-						text = holds_no_external_kingdoms
-						ROOT = {
-							NOT = {
-								any_demesne_title = {
-									tier = KING
-									NOT = { de_jure_liege = PREVPREV }
-								}
-							}
-						}
-					}
-				}
-			}
 		}
 		effect = {
 			primary_title = {
@@ -197,22 +161,6 @@ decisions = {
 						any_direct_de_jure_vassal_title = {
 							ROOT = {
 								NOT = { completely_controls = PREV }
-							}
-						}
-					}
-				}
-			}
-			# Forbid if you hold any Kingdoms outside the Empire of your primary
-			# title, this is a work-around for not being able to find the newly
-			# created title any other way than looking at held Kingdoms.
-			primary_title = {
-				custom_tooltip = {
-					text = holds_no_external_kingdoms
-					ROOT = {
-						NOT = {
-							any_demesne_title = {
-								tier = KING
-								NOT = { de_jure_liege = PREVPREV }
 							}
 						}
 					}

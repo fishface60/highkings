@@ -24,10 +24,6 @@ Either completely control all the de-jure lands of the Empire of your
 Primary Title, or ensure a vassal of yours holds all the lands of
 the Empire.
 
-As a technical limit, you (or your vassal) must not hold any Kingdoms
-belonging to an Empire outside your (or your vassal's) primary title's
-Empire.
-
 The decision will become visible after you (or your vassal) hold at
 least two de-jure Kingdoms in the de-jure Empire of your (or your
 vassal's) primary title.
@@ -74,26 +70,15 @@ TODO
 Bugs
 ====
 
-*   You can't create a High Kingdom if you hold Kingdoms outside the
-    Empire of your primary title.
-
-    If the creator of a High Kingdom holds other Kingdoms, then they may
-    become de-jure the Empire of the new High Kingdom, and have the
-    lands of the High Kingdom assigned to them.
-
-    This is why I have put in the potentially arbitrary restriction.
-
-    See feature request 1.
-
 *   The old Kingdoms can still be created as Titular Kingdoms.
 
-    See feature request 2.
+    See feature request 1.
 
 *   Titular Kingdoms don't contribute towards when the decision appears.
 
     This may either be a bug or a feature, but I don't have the choice.
 
-    See feature request 2.
+    See feature request 1.
 
 *   Making a High Kingdom for a Duke vassal grants the de-jure lands,
     but in the process the Counts become directly your Vassal.
@@ -101,18 +86,7 @@ Bugs
 Feature Requests
 ================
 
-1.  A way to obtain a reference to the newly created custom title.
-
-    This isn't needed for the Charlemagne expansion because when going
-    up in rank it automatically becomes your primary title.
-
-    I needed to destroy the old Kingdoms and look through all the held
-    Kingdoms, which would result in the lands of those Kingdoms going to
-    the new High Kingdom, vassalising everyone in that de-jure Kingdom,
-    leaving the Kingdom created and making it de-jure the Empire of the
-    High Kingdom.
-
-2.  Checking whether a title is active or changing the active status of
+1.  Checking whether a title is active or changing the active status of
     a title requires it to be explicitly named.
 
     This is sufficient for base-game, as the events are tied to specific
@@ -121,13 +95,13 @@ Feature Requests
     To be able to handle this, I need to be able to pass a reference like
     `PREV` or `THIS` to `is_title_active` and `activate_title`.
 
-3.  Allow the `empire` scope to be used on empire tier titles.
+2.  Allow the `empire` scope to be used on empire tier titles.
 
     I need two different decisions to handle making High Kingdom titles
     when I'm an Emperor or a King. If I could get an empire scope from
     an empire then the same logic would fall through.
 
-4.  Allow drop-in directories for triggered_modifiers.txt
+3.  Allow drop-in directories for triggered_modifiers.txt
 
     I need a flag for eligibility for High Kingship, but it's annoying to
     have to trigger an event to add the flag and an event to remove it,
