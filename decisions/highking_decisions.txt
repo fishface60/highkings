@@ -69,55 +69,9 @@ vassal_decisions = {
 					custom_tooltip = {
 						text = create_high_kingdom
 						hidden_tooltip = {
-							# Create new Kingdom title based on the Empire
-							create_title = {
-								tier = KING
-								landless = no
-								temporary = no
-								custom_created = yes
-								culture = ROOT
-								holder = ROOT
-								base_title = THIS
-								copy_title_laws = yes
-								make_primary_title = yes
-							}
-							# Destroy old Kingdoms
-							any_direct_de_jure_vassal_title = {
-								destroy_landed_title = THIS
-								# Would prefer to deactivate title, but it can't take a reference
-								#activate_title = { title = THIS status = no }
-							}
-							# Make high kingdom de-jure the empire it is named from
 							ROOT = {
-								# Best effort to locate newly created title, will cause other
-								# Kingdoms held by vassal to also become de-jure part of Empire.
-								any_demesne_title = {
-									limit = {
-										tier = KING
-									}
-									# Set de-jure Empire of High Kingdom to Empire
-									# PREVPREV = empire
-									de_jure_liege = PREVPREV
-								}
-							}
-							# Make Dukes of Empire vassals of High Kingdom
-							ROOT = {
-								# Best effort to locate newly created title, will cause other
-								# Kingdoms held by vassal to also become de-jure part of Empire.
-								any_demesne_title = {
-									limit = {
-										tier = KING
-									}
-									empire = {
-										# Must scope with to layers of any_direct_de_jure_vassal_title
-										# rather than any_de_jure_vassal_title with a limit, or it
-										# ignores titles that aren't currently held
-										any_direct_de_jure_vassal_title = {
-											any_direct_de_jure_vassal_title = {
-												de_jure_liege = PREVPREVPREV
-											}
-										}
-									}
+								character_event = {
+									id = highkings.0
 								}
 							}
 						}
@@ -197,55 +151,9 @@ decisions = {
 					custom_tooltip = {
 						text = create_high_kingdom
 						hidden_tooltip = {
-							# Create new Kingdom title based on the Empire
-							create_title = {
-								tier = KING
-								landless = no
-								temporary = no
-								custom_created = yes
-								culture = ROOT
-								holder = ROOT
-								base_title = THIS
-								copy_title_laws = yes
-								make_primary_title = yes
-							}
-							# Destroy old Kingdoms
-							any_direct_de_jure_vassal_title = {
-								destroy_landed_title = THIS
-								# Would prefer to deactivate title, but it can't take a reference
-								#activate_title = { title = THIS status = no }
-							}
-							# Make high kingdom de-jure the empire it is named from
 							ROOT = {
-								# Best effort to locate newly created title, will cause other
-								# Kingdoms held by vassal to also become de-jure part of Empire.
-								any_demesne_title = {
-									limit = {
-										tier = KING
-									}
-									# Set de-jure Empire of High Kingdom to Empire
-									# PREVPREV = empire
-									de_jure_liege = PREVPREV
-								}
-							}
-							# Make Dukes of Empire vassals of High Kingdom
-							ROOT = {
-								# Best effort to locate newly created title, will cause other
-								# Kingdoms held by vassal to also become de-jure part of Empire.
-								any_demesne_title = {
-									limit = {
-										tier = KING
-									}
-									empire = {
-										# Must scope with to layers of any_direct_de_jure_vassal_title
-										# rather than any_de_jure_vassal_title with a limit, or it
-										# ignores titles that aren't currently held
-										any_direct_de_jure_vassal_title = {
-											any_direct_de_jure_vassal_title = {
-												de_jure_liege = PREVPREVPREV
-											}
-										}
-									}
+								character_event = {
+									id = highkings.0
 								}
 							}
 						}
@@ -316,55 +224,9 @@ decisions = {
 				custom_tooltip = {
 					text = create_high_kingdom
 					hidden_tooltip = {
-						# Create new Kingdom title based on the Empire
-						create_title = {
-							tier = KING
-							landless = no
-							temporary = no
-							custom_created = yes
-							culture = ROOT
-							holder = ROOT
-							base_title = THIS
-							copy_title_laws = yes
-							make_primary_title = yes
-						}
-						# Destroy old Kingdoms
-						any_direct_de_jure_vassal_title = {
-							destroy_landed_title = THIS
-							# Would prefer to deactivate title, but it can't take a reference
-							#activate_title = { title = THIS status = no }
-						}
-						# Make high kingdom de-jure the empire it is named from
 						ROOT = {
-							# Best effort to locate newly created title, will cause other
-							# Kingdoms held by vassal to also become de-jure part of Empire.
-							any_demesne_title = {
-								limit = {
-									tier = KING
-								}
-								# Set de-jure Empire of High Kingdom to Empire
-								# PREVPREV = empire
-								de_jure_liege = PREVPREV
-							}
-						}
-						# Make Dukes of Empire vassals of High Kingdom
-						ROOT = {
-							# Best effort to locate newly created title, will cause other
-							# Kingdoms held by vassal to also become de-jure part of Empire.
-							any_demesne_title = {
-								limit = {
-									tier = KING
-								}
-								empire = {
-									# Must scope with to layers of any_direct_de_jure_vassal_title
-									# rather than any_de_jure_vassal_title with a limit, or it
-									# ignores titles that aren't currently held
-									any_direct_de_jure_vassal_title = {
-										any_direct_de_jure_vassal_title = {
-											de_jure_liege = PREVPREVPREV
-										}
-									}
-								}
+							character_event = {
+								id = highkings.1
 							}
 						}
 					}

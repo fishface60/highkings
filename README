@@ -68,9 +68,6 @@ TODO
     Triggered modifiers may be the most convenient way to do this, but
     there's no drop-in directory for them, see Feature request 4.
 
-*   Refactor the logic into an event to create the High Kingdom, so the
-    decisions can share logic for the effect.
-
 Bugs
 ====
 
