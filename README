@@ -68,6 +68,9 @@ TODO
     Triggered modifiers may be the most convenient way to do this, but
     there's no drop-in directory for them, see Feature request 4.
 
+    This can be accomplished with `character_event`s and `character_modifier`s,
+    but it requires more code and complexity than would be saved.
+
 Bugs
 ====
 
