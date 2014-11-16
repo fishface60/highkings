@@ -48,6 +48,19 @@ into the mod directory.
 TODO
 ====
 
+*   Consider how best to balance the decisions.
+
+    Perhaps High Kingdom as King should have a prestige cost, and High
+    Kingdoms as Emperor should require Imperial Administration.
+
+*   Consider how to create Viceroyal High Kingdoms for Vassals.
+
+    It's undocumented on ck2wiki.com, and there's no explicit announcement
+    of how to do it in the ChangeLog, other than for history files.
+
+    If there's no way to create the titles as Viceroyal, then I'll have to
+    create the title in the scope of the Emperor and Viceroyally grant it.
+
 *   Refactor the logic into character flags for potential High Kings,
     so the selection logic can be the same for yourself being eligible
     and your vassals being eligible.
