@@ -32,14 +32,116 @@ There are no limits from rank, so you can make a High Kingdom for yourself
 as a Count, Duke, King or Emperor, but you need to be an Emperor to make
 a High Kingdom for a Vassal.
 
-Installation Instructions
-=========================
+GitHub Installation Instructions
+================================
 
-If you're installing from the Steam Workshop, this should all be automatic.
+If you're installing from the Steam Workshop, you don't need to do this.
 
-If not, you need to put the highkings directory extracted from the archive
-in your Crusader Kings II mod directory, and copy the highkings.mod file
-into the mod directory.
+Either download the latest snapshot zip
+(https://github.com/fishface60/highkings/archive/master.zip), and
+extract the contents of the highkings-master folder into a directory
+called highkings, or clone the repository and call it highkings.
+
+Then copy the `highkings.mod` file out of the repository and put it into
+your mod directory.
+
+Links
+=====
+
+The workshop page for this mod can be seen at:
+http://steamcommunity.com/sharedfiles/filedetails/?id=342561690
+
+The github for this mod can be seen at:
+https://github.com/fishface60/highkings
+
+FAQs
+====
+
+1.  Does this mod conflict with any base game functionality or other mods?
+
+    It should not. I was careful to use the drop-in files way of adding
+    functionality, rather than editing existing files, so it should not
+    override changes to base-game changes, which other mods may need
+    to change.
+
+    So if Paradox updates the game my mod won't force it to use old files,
+    which may be incompatible with other changes.
+
+    Similarly if another mod has to alter existing files, then my mod
+    won't conflict with that, so theoretically, my mod should be usable
+    in a total conversion.
+
+    There can still be logic conflicts which can break things, such as
+    if a Kingdom title has special meaning, as the High Kings mod will
+    destroy it and redistribute its lands regardless.
+
+2.  The decision does not appear.
+
+    You need to completely control the Empire. Holding all the Kingdoms
+    alone isn't sufficient, you also need to hold all the counties
+    and baronies.
+
+    There's often a county at the edge of the Empire that has been missed.
+
+    To check whether you have everything, you can either enter the De-Jure
+    Empires map mode and scan the borders to see whether the borders
+    don't match up, and inspect all the counties to see if there's any
+    small flags; or you could locate the Empire in the title menu, check
+    the de-jure mode box, and walk through the de-jure vassal titles to
+    see if any are highlighted in red.
+
+3.  Can I use your mod in my mod?
+
+    You can easily do this by just copying all the files from my mod
+    into yours, as I've been careful not to override any existing files.
+
+4.  May I use your mod in my mod?
+
+    The mod is permissively licensed, so I couldn't stop you from doing
+    so even if I wanted to.
+
+    Giving me credit for the contribution would be nice, but you aren't
+    required to.
+
+5.  Why shouldn't I use your mod in my mod?
+
+    You don't need to merge my mod into yours to have the functionality
+    provided by my mod.
+
+    You could instead list it as a recommended mod to install alongside.
+
+    It becomes extra work for you to update your mod if you want to
+    include a new version of my mod in yours, whereas if people subscribe
+    to my mod then it's all automatic.
+
+    You may accidentally break someone else's mod if both you and they
+    include my mod.
+
+    On a more personal note, it means that I don't get feedback on
+    whether people like, or are actively using my mod, so if Paradox
+    add a new feature to the game engine that would make my mod better,
+    I may not think it's worth the effort to improve this mod.
+
+6.  Given the above, why might I still want to include your mod in my mod?
+
+    If it's a total conversion then it's less likely that there'll be
+    other mods installed that would conflict, so you don't need to worry
+    about that.
+
+    Any changes to my mod will be focussing on improving the core features,
+    but it's possible that your mod may conflict with a future version
+    of my mod. So including a specific version of my mod would prevent
+    updates to my mod causing problems.
+
+    If you heavily depend on functionality provided by my mod, then
+    including my mod would prevent your users from having broken
+    installations if they forgot to include my mod.
+
+    I'd prefer this were handled by creating a steam workshop collection
+    of the kind "Items that work together", so you get a subscribe to
+    all button to handle ensuring everything needed is instaled, but if
+    it's a regular occurrence that your users fail to install dependent
+    mods, then it may be the best approach.
 
 TODO
 ====
