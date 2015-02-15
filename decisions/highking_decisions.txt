@@ -8,7 +8,6 @@ vassal_decisions = {
 			is_ruler = yes
 			is_landed = yes
 			tier = KING
-			is_liege = FROM
 			# Any vassal which controls more than one de-jure kingdom in the empire
 			# of their primary title
 			primary_title = {
