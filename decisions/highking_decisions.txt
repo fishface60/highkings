@@ -71,7 +71,7 @@ decisions = {
 		potential = {
 			is_ruler = yes
 			is_landed = yes
-			is_independent = yes
+			independent = yes
 			tier = KING
 			# Any vassal which controls more than one de-jure kingdom in the empire
 			# of their primary title
@@ -133,7 +133,7 @@ decisions = {
 		potential = {
 			is_ruler = yes
 			is_landed = yes
-			is_independent = yes
+			independent = yes
 			tier = EMPEROR
 			# Any vassal which controls more than one de-jure kingdom in the empire
 			# of their primary title
